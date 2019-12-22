@@ -1,0 +1,16 @@
+[
+    {
+        "owner": "Administrator",
+        "creation_date": "2019-12-22T04:29:03+00:00",
+        "modification_date": "2019-12-22T05:29:03+00:00",
+        "access_date": "2019-12-22T03:29:03+00:00",
+        "path": "/usr/bin/example",
+        "checksums" : {
+            "md5": "7815696ecbf1c96e6894b779456d330e",
+            "sha1": "92afeb193f67d1892e3cdd0dab5e9a9ed5e26dad"
+        },
+        "os": "Ubuntu 18",
+        "machine": "Host 1234",
+        "action": "File modified"
+    }
+]
