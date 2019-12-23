@@ -1,10 +1,30 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>FIM</span>
-    <span class="spacer"></span>
-    <mat-icon class="toolbar-icon" aria-hidden="false" aria-label="Logout">power_settings_new</mat-icon>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="container-router">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sideNav class="example-sidenav mat-elevation-z3" [mode]="isMobile ? 'over' : 'side'">
+      <mat-toolbar color="primary" >
+        FIM
+        <span fxFlex></span>
+        <button mat-icon-button (click)="sideNav.close()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+      </mat-toolbar>
+      <mat-nav-list style="z-index: 2">
+        <a mat-list-item routerLink="/files" routerLinkActive="active-link" (click)="sideNav.close()">Files</a>
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="sideNav.close()">Dashboard</a>
+        <a mat-list-item routerLink="/integrations" routerLinkActive="active-link" (click)="sideNav.close()">Integrations</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    
+    <mat-toolbar color="primary" class="mat-elevation-z3 spacer">
+      
+      <button mat-icon-button (click)="sideNav.toggle()"><mat-icon>menu</mat-icon></button> FIM
+      <span fxFlex></span>
+      <span class="spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item > 
+          <mat-icon>settings_power</mat-icon> Logout
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
