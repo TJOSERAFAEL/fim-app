@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FilesComponent } from './pages/files/files.component';
+import { IntegrationsComponent } from './pages/integrations/integrations.component';
  
 @NgModule({
   declarations: [
     AppComponent,
-    FilesComponent
+    FilesComponent,
+    IntegrationsComponent
   ],
   imports: [
     BrowserModule,
