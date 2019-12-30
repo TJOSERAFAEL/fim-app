@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilesService } from '../../core/services/files.service';
+import { Observable } from 'rxjs';
+import { FileInterface } from 'src/app/core/interfaces/files';
 
 @Component({
   selector: 'app-files',
@@ -8,15 +10,14 @@ import { FilesService } from '../../core/services/files.service';
 })
 export class FilesComponent implements OnInit {
 
-  files : any = [];
+  files : Array<FileInterface>;
 
   constructor(private filesService : FilesService) { }
 
   ngOnInit() {
-    this.filesService.getFiles().subscribe(data => 
-      { 
-        this.files = data; 
-      });
+    this.filesService.getFiles().subscribe(data =>
+        this.files = data.map(file => file)
+      );
   }
 
 }

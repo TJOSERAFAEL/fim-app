@@ -11,4 +11,5 @@ export interface FileInterface {
     os: string
     machine: string
     action: string
+    action_description: string
   }

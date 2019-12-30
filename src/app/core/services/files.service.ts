@@ -11,6 +11,6 @@ export class FilesService {
   constructor(private http: HttpClient) { }
 
   getFiles() { 
-    return this.http.get<FileInterface>(environment.apiUrl + "files/files.json");
+    return this.http.get<FileInterface[]>(environment.apiUrl + "files/files.json");
   }
 }
