@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Server 1",
+        "creation_date": "2019-12-22T04:29:03+00:00",
+        "modification_date": "2019-12-22T05:29:03+00:00",
+        "ip_address": "192.168.1.2",
+        "status": "running"
+    },
+    {
+        "id": 2,
+        "name": "Server 2",
+        "creation_date": "2019-12-22T04:29:03+00:00",
+        "modification_date": "2019-12-22T05:29:03+00:00",
+        "ip_address": "192.168.1.3",
+        "status": "stopped"
+    },
+    {
+        "id": 3,
+        "name": "Server 3",
+        "creation_date": "2019-12-22T04:29:03+00:00",
+        "modification_date": "2019-12-22T05:29:03+00:00",
+        "ip_address": "192.168.1.4",
+        "status": "running"
+    }
+]
