@@ -15,7 +15,7 @@ export class ServersComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   
-  displayedColumns: string[] = ['id','name','ip_address','creation_date','status','configuration'];
+  displayedColumns: string[] = ['id','name','ip_address','creation_date','status','configuration','delete'];
   servers : Array<ServerInterface>;
   dataServers: any;
 
@@ -36,6 +36,10 @@ export class ServersComponent implements OnInit {
 
   openAddServer(): void {
     this.dialog.open(AddServerComponent,{ width: '640px', disableClose: false});
+  }
+
+  deleteServer(id: number) {
+
   }
 
 
