@@ -6,6 +6,18 @@
             Search files...
         </mat-label>
     </mat-form-field>
+    Filter by Operating System
+    <mat-form-field class="full-width">
+        <mat-chip-list #chipList aria-label="OS selection">
+            <mat-chip *ngFor="let os of operatingSystems" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(os)">
+                {{os.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+    </mat-form-field>
 </mat-card>
 
 <mat-card class="example-card">
@@ -19,8 +31,13 @@
                 [ngClass]="{'file-added' : file.action=='file-added', 'file-modified': file.action=='file-modified', 'file-deleted' : file.action=='file-deleted'}">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <button mat-button (click)="pinFile($event, file)"><mat-icon mat-list-icon [color]="file.pinned==true ? 'primary' : ''">priority_high</mat-icon></button>
-                        <button mat-button><mat-icon mat-list-icon>chat_bubble_outline</mat-icon></button>
+                        <button mat-button (click)="pinFile($event, file)">
+                            <mat-icon mat-list-icon [color]="file.pinned==true ? 'primary' : ''">priority_high
+                            </mat-icon>
+                        </button>
+                        <button mat-button>
+                            <mat-icon mat-list-icon>chat_bubble_outline</mat-icon>
+                        </button>
                         <mat-icon mat-list-icon>note</mat-icon>
                         {{ file.path }}
                     </mat-panel-title>
