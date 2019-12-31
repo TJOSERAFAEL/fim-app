@@ -20,4 +20,10 @@ export class FilesComponent implements OnInit {
       );
   }
 
+  pinFile(event, file: FileInterface) {
+    event.stopPropagation();
+    event.preventDefault();
+    file.pinned = !file.pinned;
+  }
+
 }

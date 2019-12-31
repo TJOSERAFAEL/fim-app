@@ -15,9 +15,12 @@
     </mat-card-header>
     <mat-card-content>
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let file of files" [ngClass]="{'file-added' : file.action=='file-added', 'file-modified': file.action=='file-modified', 'file-deleted' : file.action=='file-deleted'}">
-                <mat-expansion-panel-header >
+            <mat-expansion-panel *ngFor="let file of files"
+                [ngClass]="{'file-added' : file.action=='file-added', 'file-modified': file.action=='file-modified', 'file-deleted' : file.action=='file-deleted'}">
+                <mat-expansion-panel-header>
                     <mat-panel-title>
+                        <button mat-button (click)="pinFile($event, file)"><mat-icon mat-list-icon [color]="file.pinned==true ? 'primary' : ''">priority_high</mat-icon></button>
+                        <button mat-button><mat-icon mat-list-icon>chat_bubble_outline</mat-icon></button>
                         <mat-icon mat-list-icon>note</mat-icon>
                         {{ file.path }}
                     </mat-panel-title>
@@ -28,19 +31,25 @@
                         {{ file.action }}
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-                <p>Created by user: {{ file.owner }}</p>
-                <p>Creation Date: {{ file.creation_date }}</p>
-                <p>Modification Date: {{ file.modification_date }}</p>
-                <p>Checksums:</p>
                 <mat-list>
-                    <mat-list-item>
-                        <p mat-line> md5: {{ file.checksums.md5 }}</p>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <p mat-line> sha1: {{ file.checksums.sha1 }}</p>
-                    </mat-list-item>
+                    <mat-list-item>Created by user: {{ file.owner }}</mat-list-item>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <mat-list-item>Creation Date: {{ file.creation_date }}</mat-list-item>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <mat-list-item>Modification Date: {{ file.modification_date }}</mat-list-item>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <mat-list-item>Checksums:</mat-list-item>
+                    <mat-list>
+                        <mat-list-item>
+                            <p mat-line> md5: {{ file.checksums.md5 }}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <p mat-line> sha1: {{ file.checksums.sha1 }}</p>
+                        </mat-list-item>
+                    </mat-list>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <mat-list-item>Action: {{ file.action_description }}</mat-list-item>
                 </mat-list>
-                <p>Action: {{ file.action }}</p>
             </mat-expansion-panel>
         </mat-accordion>
     </mat-card-content>

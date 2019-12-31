@@ -12,4 +12,5 @@ export interface FileInterface {
     machine: string
     action: string
     action_description: string
+    pinned: boolean
   }

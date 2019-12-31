@@ -12,7 +12,8 @@
         "os": "Ubuntu 18",
         "machine": "Host 1234",
         "action": "file-deleted",
-        "action_description": "File deleted"
+        "action_description": "File deleted",
+        "pinned": true
     },
     {
         "owner": "Administrator",
