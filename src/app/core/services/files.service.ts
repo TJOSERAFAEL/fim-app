@@ -14,13 +14,21 @@ export class FilesService {
     return this.http.get<FileInterface[]>(environment.apiUrl + "files/files.json");
   }
 
-  getFilesByPath(path : string) {
+  getFilesByPath(path : string, regex : boolean) {
     return this.http.get<FileInterface[]>(environment.api + "files", 
     { 
       params: {
-        path: path
+        path: path,
+        regex: String(regex)
       } 
     });
   }
 
+  setPinned(id : string, pinned : boolean) {
+    return this.http.put(environment.api + "file/pinned",
+    { 
+      id: id,
+      pinned: String(pinned)
+    });
+  }
 }

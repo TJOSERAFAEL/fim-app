@@ -1,4 +1,5 @@
 export interface FileInterface {
+    id: string;
     owner: string;
     creation_date: string;
     modification_date: string;

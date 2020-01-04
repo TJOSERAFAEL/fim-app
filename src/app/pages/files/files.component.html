@@ -5,6 +5,9 @@
             <mat-icon>search</mat-icon>
             Search files...
         </mat-label>
+        <mat-button-toggle matSuffix (click)="toggleFileRegex()">
+            .*
+        </mat-button-toggle>
     </mat-form-field>
     Filter by Operating System
     <mat-form-field class="full-width">

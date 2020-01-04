@@ -33,6 +33,7 @@ export class FilesComponent implements OnInit {
 
   files : Array<FileInterface>;
   showSpinner : boolean = true;
+  fileRegex : boolean = false;
 
   constructor(private filesService : FilesService) { }
 
@@ -67,15 +68,21 @@ export class FilesComponent implements OnInit {
   pinFile(event, file: FileInterface) {
     event.stopPropagation();
     event.preventDefault();
-    file.pinned = !file.pinned;
+    this.filesService.setPinned(file.id, !file.pinned).subscribe(data =>
+      file.pinned = !file.pinned 
+    );
   }
 
   searchFilesByPath(path : string) {
     this.showSpinner = true;
-    this.filesService.getFilesByPath(path).subscribe(data =>  {
+    this.filesService.getFilesByPath(path, this.fileRegex).subscribe(data =>  {
         this.files = data.map(file => file)
         setTimeout(() => this.showSpinner = false, 500);
       }
     );
+  }
+
+  toggleFileRegex() {
+    this.fileRegex = !this.fileRegex;
   }
 }
