@@ -32,13 +32,16 @@ export class FilesComponent implements OnInit {
   ];
 
   files : Array<FileInterface>;
+  showSpinner : boolean = true;
 
   constructor(private filesService : FilesService) { }
 
   ngOnInit() {
-    this.filesService.getFiles().subscribe(data =>
+    this.filesService.getFiles().subscribe(data => {
         this.files = data.map(file => file)
-      );
+        this.showSpinner = false;
+      }
+    );
   }
 
   add(event: MatChipInputEvent): void {
@@ -65,5 +68,14 @@ export class FilesComponent implements OnInit {
     event.stopPropagation();
     event.preventDefault();
     file.pinned = !file.pinned;
+  }
+
+  searchFilesByPath(path : string) {
+    this.showSpinner = true;
+    this.filesService.getFilesByPath(path).subscribe(data =>  {
+        this.files = data.map(file => file)
+        setTimeout(() => this.showSpinner = false, 500);
+      }
+    );
   }
 }

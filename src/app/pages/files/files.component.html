@@ -1,5 +1,5 @@
 <mat-card class="example-card">
-    <mat-form-field [floatLabel]="auto" class="full-width">
+    <mat-form-field [floatLabel]="auto" class="full-width" (keyup)="searchFilesByPath($event.target.value)">
         <input matInput placeholder="Search files...">
         <mat-label>
             <mat-icon>search</mat-icon>
@@ -26,7 +26,9 @@
         <mat-card-subtitle>Last 15 minutes</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-accordion>
+        <mat-spinner *ngIf="showSpinner" class="center-spinner" [diameter]="50">
+        </mat-spinner>
+        <mat-accordion *ngIf="!showSpinner">
             <mat-expansion-panel *ngFor="let file of files"
                 [ngClass]="{'file-added' : file.action=='file-added', 'file-modified': file.action=='file-modified', 'file-deleted' : file.action=='file-deleted'}">
                 <mat-expansion-panel-header>
@@ -56,7 +58,7 @@
                     <mat-list-item>Modification Date: {{ file.modification_date }}</mat-list-item>
                     <mat-divider [inset]="true"></mat-divider>
                     <mat-list-item>Checksums:</mat-list-item>
-                    <mat-list>
+                    <mat-list *ngIf="file.checksums">
                         <mat-list-item>
                             <p mat-line> md5: {{ file.checksums.md5 }}</p>
                         </mat-list-item>
