@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
+import { ServersService } from 'src/app/core/services/servers.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-server',
@@ -13,7 +14,9 @@ export class AddServerComponent implements OnInit {
   name: string;
   ipAddress: string;
 
-  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
+  constructor(private formBuilder: FormBuilder, 
+    public dialog: MatDialog, public serversService: ServersService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.serverForm = this.formBuilder.group({
@@ -22,7 +25,26 @@ export class AddServerComponent implements OnInit {
     });
   }
 
+  addServer() {
+    console.log(this.serverForm.valid);
+    if (this.serverForm.valid) {
+      const name = this.serverForm.get('name').value;
+      const ip_address = this.serverForm.get('ip_address').value;
+      this.serversService.addNewServer(name, ip_address).subscribe(data => {
+          if (data) {
+            this.openSnackBar("Server added!");
+            this.closeDialog();
+          }
+        }
+      );
+    }
+  }
+
   closeDialog() {
     this.dialog.closeAll()
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, "CLOSE");
   }
 }

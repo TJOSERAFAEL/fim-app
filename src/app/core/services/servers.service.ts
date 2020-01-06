@@ -13,4 +13,12 @@ export class ServersService {
   getServers() { 
     return this.http.get<ServerInterface[]>(environment.apiUrl + "servers/servers.json");
   }
+
+  addNewServer(name: string, ip_address: string) {
+    return this.http.post(environment.api + "server",
+    { 
+      name: name,
+      ip_address: ip_address
+    });
+  }
 }
