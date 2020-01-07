@@ -42,4 +42,26 @@ describe('ServersService', () => {
     )
   );
 
+  it('should add a new server',
+    inject([HttpTestingController, ServersService],
+      (
+        httpMock: HttpTestingController,
+        serversService: ServersService
+      ) => {
+        const mockServer = {name:"new server", ip_address: "192.168.1.1"}
+
+        serversService.addNewServer(mockServer.name, mockServer.ip_address).subscribe(data => {
+          expect(data).toBeDefined();
+        });
+
+        const mockReq = httpMock.expectOne(environment.api + "server");
+        expect(mockReq.cancelled).toBeFalsy();
+        expect(mockReq.request.method).toEqual('POST');
+        expect(mockReq.request.responseType).toEqual('json');
+        mockReq.flush(mockServer);
+        httpMock.verify();
+      }
+    )
+  );
+
 });
