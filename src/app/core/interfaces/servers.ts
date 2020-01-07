@@ -1,5 +1,5 @@
 export interface ServerInterface {
-    id: number;
+    id: string;
     name: string;
     creation_date: string;
     modification_date: string;
