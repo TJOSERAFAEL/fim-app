@@ -21,4 +21,12 @@ export class ServersService {
       ip_address: ip_address
     });
   }
+
+  deleteServer(id: string) {
+    return this.http.delete(environment.api + "server", { 
+      params: {
+        id: id
+      } 
+    });
+  }
 }

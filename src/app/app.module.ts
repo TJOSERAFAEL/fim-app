@@ -13,13 +13,15 @@ import { IntegrationsComponent } from './pages/integrations/integrations.compone
 import { ServersComponent } from './pages/servers/servers.component';
 import { AddServerComponent } from './shared/components/add-server/add-server.component';
 import { HttpErrorInterceptor } from './core/interceptors/http-error-interceptor';
+import { DeleteServerComponent } from './shared/components/delete-server/delete-server.component';
 @NgModule({
   declarations: [
     AppComponent,
     FilesComponent,
     IntegrationsComponent,
     ServersComponent,
-    AddServerComponent
+    AddServerComponent,
+    DeleteServerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,6 @@ import { HttpErrorInterceptor } from './core/interceptors/http-error-interceptor
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddServerComponent]
+  entryComponents: [AddServerComponent, DeleteServerComponent]
 })
 export class AppModule { }

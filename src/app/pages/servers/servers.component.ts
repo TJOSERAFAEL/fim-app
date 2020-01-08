@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ServerInterface } from 'src/app/core/interfaces/servers';
 import { ServersService } from 'src/app/core/services/servers.service';
 import { AddServerComponent } from 'src/app/shared/components/add-server/add-server.component';
+import { DeleteServerComponent } from 'src/app/shared/components/delete-server/delete-server.component';
 
 @Component({
   selector: 'app-servers',
@@ -34,14 +35,12 @@ export class ServersComponent implements OnInit {
 
   }
 
-  openAddServer(): void {
+  openAddServer() {
     this.dialog.open(AddServerComponent,{ width: '640px', disableClose: false});
   }
 
-  deleteServer(id: number) {
-
+  openDeleteServer(server: string) {
+    this.dialog.open(DeleteServerComponent,{ width: '400px', disableClose: false, data: server});
   }
-
-
 
 }
