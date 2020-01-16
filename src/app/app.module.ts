@@ -14,6 +14,7 @@ import { ServersComponent } from './pages/servers/servers.component';
 import { AddServerComponent } from './shared/components/add-server/add-server.component';
 import { HttpErrorInterceptor } from './core/interceptors/http-error-interceptor';
 import { DeleteServerComponent } from './shared/components/delete-server/delete-server.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { DeleteServerComponent } from './shared/components/delete-server/delete-
     IntegrationsComponent,
     ServersComponent,
     AddServerComponent,
-    DeleteServerComponent
+    DeleteServerComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
