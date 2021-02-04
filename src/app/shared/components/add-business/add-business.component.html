@@ -1,0 +1,77 @@
+<div>
+    <div class="add-title">
+        <h2 class="primary">Añadir empresa</h2>
+    </div>
+    <div>
+        <form [formGroup]="form">
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Nombre" formControlName="name" required>
+                    <mat-error *ngIf="form.controls.name.hasError('required')">
+                        Introduce nombre de empresa
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="form.controls.email.hasError('required')">
+                        Introduce email valido
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="CIF" formControlName="cif" required>
+                    <mat-error *ngIf="form.controls.cif.hasError('required')">
+                        Introduce CIF
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Dirección" formControlName="direction" required>
+                    <mat-error *ngIf="form.controls.direction.hasError('required')">
+                        Introduce una dirección
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Teléfono" formControlName="phone" required>
+                    <mat-error *ngIf="form.controls.phone.hasError('required')">
+                        Introduce un teléfono
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Código postal" formControlName="postal_code" required>
+                    <mat-error *ngIf="form.controls.phone.hasError('required')">
+                        Introduce un código postal
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="Ciudad" formControlName="city" required>
+                    <mat-error *ngIf="form.controls.city.hasError('required')">
+                        Introduce una ciudad
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+
+            <div class="display-flex">
+                <span fxFlex></span>
+                <span class="spacer"></span>
+                <button [disabled]="!form.valid" mat-raised-button type="submit" color="primary"
+                    (click)="addServer()">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

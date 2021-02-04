@@ -1,0 +1,57 @@
+<mat-card class="example-card mat-elevation-z4">
+    <mat-card-title>{{ 'kyc.user_data' | translate }}</mat-card-title>
+    <mat-card-content *ngIf="user != null">
+        <p>{{ 'users.name' | translate }}: {{ user.name }}</p>
+        <p>{{ 'users.surname' | translate }}: {{ user.surname }}</p>
+        <p>{{ 'users.identification' | translate }}: {{ user.identification }}</p>
+        <p>{{ 'users.address' | translate }}: {{ user.address }}</p>
+        <p>{{ 'users.zip_code' | translate }}: {{ user.zip_code }}</p>
+        <p>{{ 'users.birth_date' | translate }}: {{ user.birth_date }}</p>
+    </mat-card-content>
+</mat-card>
+
+<div class="space-10"></div>
+
+<mat-card class="example-card mat-elevation-z4" *ngIf="kyc != null">
+    <mat-card-title>{{ 'kyc.document' | translate }}: {{ kyc.document_name }}</mat-card-title>
+
+    <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>{{ 'kyc.front_photo' | translate }}</ng-template>
+            <mat-card class="example-card mat-elevation-z4">
+                <div *ngIf="kyc != null">
+                    <img src="{{imagePath}}{{kyc.id_front_photo}}" />
+                </div>
+            </mat-card>
+            <div>
+                <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>{{ 'kyc.back_photo' | translate }}</ng-template>
+            <mat-card class="example-card mat-elevation-z4">
+                <div *ngIf="kyc != null">
+                    <img src="{{imagePath}}{{kyc.id_back_photo}}" />
+                </div>
+            </mat-card>
+            <div>
+                <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>{{ 'kyc.user_photo' | translate }}</ng-template>
+            <mat-card class="example-card mat-elevation-z4">
+                <div *ngIf="kyc != null">
+                    <img src="{{imagePath}}{{kyc.id_user_photo}}" />
+                </div>
+            </mat-card>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="confirmKyc()">{{ 'kyc.confirm' | translate }}</button>
+            </mat-card-actions>
+        </mat-step>
+    </mat-horizontal-stepper>
+
+  
+</mat-card>

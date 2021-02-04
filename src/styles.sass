@@ -1,12 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming'
+@include mat-core()
+
+$my-app-primary: mat-palette($mat-indigo)
+$my-app-accent: mat-palette($mat-pink, A200, A100, A400)
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent)
+
+@include angular-material-theme($my-app-theme)
+
 .display-flex
     display: flex
 
 .margin-right-5
     margin-right: 5px
 
+.margin-left-10
+    margin-left: 10px
+    
 .spacer
     flex: 1 1 auto
 
 .space-10
     height: 10px
+
+.space-50
+    height: 50px
+
+.block
+    display: block !important
+
+.hidden
+    display: none
+    
+mat-sidenav
+    border-right: none !important
+
+mat-sidenav-container
+    background-color: #f4f7fc !important
+
+.mat-elevation-z3
+    box-shadow: 0 0 2rem 0 rgba(0,0,0,.05)
+
+.mat-elevation-z4
+    box-shadow: 0 3px 4px rgba(126,142,177,.12) !important
+
+.mat-elevation-z0
+    box-shadow: none
+
+.active-link
+    mat-icon
+        color: #3f51b5
+    font-weight: bold
+
+.inline
+    display: inline
+
+body
+    font-family: Roboto, Arial, sans-serif
+    margin: 0
+
+.mat-figure
+    display: initial !important
+
+.row
+  display: flex
+
+.column
+  flex: 50%
+
+.text-center
+  text-align: center

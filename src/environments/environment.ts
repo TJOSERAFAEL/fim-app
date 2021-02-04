@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: "assets/",
-  api: "http://localhost:8081/"
+  api: "http://localhost:8000/api/",
+  server: "http://localhost:8000/"
 };
 
 /*

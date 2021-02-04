@@ -1,0 +1,88 @@
+<div>
+    <div class="add-title">
+        <h2 class="primary">{{ 'add_vehicle.new' | translate }}</h2>
+    </div>
+    <div>
+        <form [formGroup]="form">
+            <p>
+                <mat-form-field>
+                    <mat-label>{{ 'add_vehicle.brand' | translate }}</mat-label>
+                    <select matNativeControl formControlName="brand" required>
+                        <option value="1">Volvo</option>
+                        <option value="2">Saab</option>
+                        <option value="3">Mercedes</option>
+                        <option value="4">Opel</option>
+                        <option value="5">Fiat</option>
+                        <option value="6">Audi</option>
+                        <option value="7">Volkswagen</option>
+                        <option value="8">Ford</option>
+                        <option value="9">Renault</option>
+                    </select>
+                    <mat-error *ngIf="form.controls.brand.hasError('required')">
+                        {{ 'add_vehicle.brandRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="{{ 'add_vehicle.model' | translate }}" formControlName="model" required>
+                    <mat-error *ngIf="form.controls.model.hasError('required')">
+                        {{ 'add_vehicle.modelRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+          <!--  <p>
+                <mat-form-field>
+                    <input matInput placeholder="{{ 'add_vehicle.identification' | translate }}" formControlName="identification" required>
+                    <mat-error *ngIf="form.controls.identification.hasError('required')">
+                        {{ 'add_vehicle.identificationRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </p>-->
+
+            <p>
+                <mat-form-field>
+                    <input matInput placeholder="{{ 'add_vehicle.initialKM' | translate }}" formControlName="initial_km" required>
+                    <mat-error *ngIf="form.controls.initial_km.hasError('required')">
+                        {{ 'add_vehicle.initialKMRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <mat-label>{{ 'add_vehicle.year' | translate }}</mat-label>
+                    <select matNativeControl formControlName="year" required>
+                        <option *ngFor="let y of years">{{ y }}</option>
+                    </select>
+                    <mat-error *ngIf="form.controls.year.hasError('required')">
+                        {{ 'add_vehicle.yearRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+     
+            <p>
+                <mat-form-field>
+                    <mat-label>{{ 'add_vehicle.type' | translate }}</mat-label>
+                    <select matNativeControl formControlName="type" required>
+                        <option value="1">Gasoline</option>
+                        <option value="2">Diesel</option>
+                        <option value="3">Hybrid</option>
+                        <option value="4">Bifuel</option>
+                    </select>
+                    <mat-error *ngIf="form.controls.type.hasError('required')">
+                        {{ 'add_vehicle.typeRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+            </p>
+    
+            <div class="display-flex">
+                <span fxFlex></span>
+                <span class="spacer"></span>
+                <button [disabled]="!form.valid" mat-raised-button type="submit" color="primary" (click)="addVehicle()">{{ 'add_vehicle.save' | translate }}</button>
+            </div>
+        </form>
+    </div>
+</div>

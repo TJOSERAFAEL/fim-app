@@ -1,0 +1,15 @@
+<mat-sidenav #sideNav class="example-sidenav mat-elevation-z3" [mode]="isMobile ? 'over' : 'side'" [opened]="true">
+    <mat-toolbar color="primary">
+      SOLOCLIMA
+      <span fxFlex></span>
+      <button mat-icon-button (click)="sideNav.close()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list style="z-index: 2">
+      <a mat-list-item routerLink="/business" routerLinkActive="active-link">Empresas</a>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">Vehículos</a>
+      <a mat-list-item routerLink="/integrations" routerLinkActive="active-link">Usuarios</a>
+      <a mat-list-item routerLink="/servers" routerLinkActive="active-link">Servers</a>
+    </mat-nav-list>
+</mat-sidenav>

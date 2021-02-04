@@ -1,0 +1,62 @@
+{
+    "toolbar": {
+        "login": "Login",
+        "business": "Business",
+        "users": "Users",
+        "stats": "Stats",
+        "vehicles": "Vehicles"
+    },
+
+    "general": {
+        "email": "Email",
+        "invalidEmail": "Invalid email",
+        "password": "Password",
+        "name": "Name",
+        "surname": "Surname",
+        "repeatPassword": "Repeat password",
+        "register": "Register",
+        "login": "Login",
+        "back": "Back",
+        "actions": "Actions",
+        "createAccount": "Create account"
+    },
+
+    "sidemenu": {
+        "business": "Business",
+        "vehicles": "Vehicles",
+        "users": "Users"
+    },
+
+    "business": {
+        "direction": "Direction",
+        "cif": "CIF",
+        "phone": "Phone",
+        "creationDate": "Creation Date",
+        "vehicles": "Vehicles",
+        "activated": "Activated",
+        "search": "Search business..."
+    },
+
+    "users": {
+        "search": "Search users...",
+        "creationDate": "Creation Date",
+        "kyc_confirmed": "KYC Confirmed",
+        "kyc_ready": "KYC Ready",
+        "name": "Name",
+        "surname": "Surname",
+        "email": "Email",
+        "identification": "ID number",
+        "address": "Address",
+        "zip_code": "Zip code",
+        "birth_date": "Birth date"
+    },
+
+    "kyc": {
+        "user_data": "User data",
+        "front_photo": "Front photo",
+        "back_photo": "Back photo",
+        "user_photo": "User photo",
+        "document": "Document",
+        "confirm": "Confirm everything"
+    }
+}

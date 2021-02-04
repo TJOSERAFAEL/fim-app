@@ -1,0 +1,22 @@
+[
+    {
+        "id": "0",
+        "name": "Administrator",
+        "email": "test@test.test",
+        "cif": "asd",
+        "direction": "El padul",
+        "phone": "666333999",
+        "city": "Granada",
+        "postal_code": "18640"
+    },
+    {
+        "id": "1",
+        "name": "Administrator",
+        "email": "aest@test.test",
+        "cif": "asd",
+        "direction": "El padul",
+        "phone": "666333999",
+        "city": "Granada",
+        "postal_code": "18640"
+    }
+]
